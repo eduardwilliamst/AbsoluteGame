@@ -10,8 +10,11 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.absolutegame.Application
 import com.example.absolutegame.R
+import com.example.absolutegame.adapter.GameAdapter
 import com.example.absolutegame.databinding.ActivityHomeBinding
 import com.example.absolutegame.di.ViewModelFactory
+import com.example.absolutegame.domain.Game
+import com.example.absolutegame.presentation.profile.ProfileActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -22,7 +25,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private var binding: ActivityHomeBinding? = null
-    private var movieAdapter: MovieAdapter? = null
+    private var gameAdapter: GameAdapter? = null
 
     private val viewModel by viewModels<HomeViewModel> {
         ViewModelFactory.getInstance((application as Application).provider)
@@ -45,8 +48,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupMovieAdapter() {
-        movieAdapter = MovieAdapter()
-        binding?.recyclerMovie?.adapter = movieAdapter
+        gameAdapter = GameAdapter()
+        binding?.recyclerMovie?.adapter = gameAdapter
         binding?.recyclerMovie?.layoutManager = LinearLayoutManager(this)
     }
 
@@ -64,7 +67,7 @@ class HomeActivity : AppCompatActivity() {
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
     }
 
-    private fun handleMovies(movies: List<Movie>) {
-        movieAdapter?.submitList(movies)
+    private fun handleMovies(movies: List<Game>) {
+        gameAdapter?.submitList(movies)
     }
 }
