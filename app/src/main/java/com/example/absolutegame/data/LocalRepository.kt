@@ -23,7 +23,7 @@ class LocalRepository(
 
     override suspend fun authenticate(username: String, password: String): String {
         delay(1000)
-        return if (username == "anangkur" && password == "123456") {
+        return if (username == "willy" && password == "123456") {
             "token"
         } else {
             throw UnsupportedOperationException("username dan password salah!")

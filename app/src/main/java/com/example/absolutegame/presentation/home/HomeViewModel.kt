@@ -20,10 +20,10 @@ class HomeViewModel(
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
-    private val _movies = MutableLiveData<List<Game>>()
-    val movies: LiveData<List<Game>> = _movies
+    private val _games = MutableLiveData<List<Game>>()
+    val games: LiveData<List<Game>> = _games
 
-    fun fetchMovies() {
+    fun fetchGames() {
         _loading.value = true
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
@@ -33,10 +33,10 @@ class HomeViewModel(
                     _loading.value = false
                     _error.value = exception.message
                 }
-            }.onSuccess { movies ->
+            }.onSuccess { games ->
                 withContext(Dispatchers.Main) {
                     _loading.value = false
-                    _movies.value = movies
+                    _games.value = games
                 }
             }
         }

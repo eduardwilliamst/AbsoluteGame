@@ -6,9 +6,8 @@ import retrofit2.http.Query
 
 interface GameService {
 
-    @GET("discover/movie")
+    @GET("discover/game")
     suspend fun fetchGames(
-        @Query("api_key") apiKey: String = "4b9bfb0e83de2a4afb17c157ccb254f3",
-        @Query("with_original_language") withOriginalLanguage: String = "ko",
+        @Query("X-RapidAPI-Key") apiKey: String = "4b9bfb0e83de2a4afb17c157ccb254f3",
     ): Response
 }

@@ -27,11 +27,11 @@
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_movie"
+        android:id="@+id/recycler_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_movie"
-        android:layout_below="@id/progress"/>
+        android:layout_below="@id/progress"
+        tools:listitem="@layout/item_menu" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_profile"

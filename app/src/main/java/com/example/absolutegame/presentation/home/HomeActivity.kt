@@ -38,25 +38,25 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         observeLiveData()
-        setupMovieAdapter()
+        setupGameAdapter()
 
-        viewModel.fetchMovies()
+        viewModel.fetchGames()
 
         binding?.buttonProfile?.setOnClickListener {
             ProfileActivity.startActivity(this)
         }
     }
 
-    private fun setupMovieAdapter() {
+    private fun setupGameAdapter() {
         gameAdapter = GameAdapter()
-        binding?.recyclerMovie?.adapter = gameAdapter
-        binding?.recyclerMovie?.layoutManager = LinearLayoutManager(this)
+        binding?.recyclerGame?.adapter = gameAdapter
+        binding?.recyclerGame?.layoutManager = LinearLayoutManager(this)
     }
 
     private fun observeLiveData() {
         viewModel.loading.observe(this, ::handleLoading)
         viewModel.error.observe(this, ::handleError)
-        viewModel.movies.observe(this, ::handleMovies)
+        viewModel.games.observe(this, ::handleGames)
     }
 
     private fun handleLoading(isLoading: Boolean) {
@@ -67,7 +67,7 @@ class HomeActivity : AppCompatActivity() {
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
     }
 
-    private fun handleMovies(movies: List<Game>) {
-        gameAdapter?.submitList(movies)
+    private fun handleGames(games: List<Game>) {
+        gameAdapter?.submitList(games)
     }
 }
