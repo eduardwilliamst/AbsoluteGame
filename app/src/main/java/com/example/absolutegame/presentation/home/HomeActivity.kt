@@ -14,7 +14,10 @@ import com.example.absolutegame.adapter.GameAdapter
 import com.example.absolutegame.databinding.ActivityHomeBinding
 import com.example.absolutegame.di.ViewModelFactory
 import com.example.absolutegame.domain.Game
+import com.example.absolutegame.presentation.fragment.HomeFragment
+import com.example.absolutegame.presentation.fragment.ProfileFragment
 import com.example.absolutegame.presentation.profile.ProfileActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 
@@ -24,50 +27,29 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private var binding: ActivityHomeBinding? = null
-    private var gameAdapter: GameAdapter? = null
-
-    private val viewModel by viewModels<HomeViewModel> {
-        ViewModelFactory.getInstance((application as Application).provider)
-    }
-
+    private var bottomNav: BottomNavigationView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
 
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
 
-        observeLiveData()
-        setupGameAdapter()
+        bottomNav = findViewById(R.id.bottom_nav)
 
-        viewModel.fetchGames()
-
-        binding?.buttonProfile?.setOnClickListener {
-            ProfileActivity.startActivity(this)
+        bottomNav?.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.itemHome -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
+                    true
+                }
+                R.id.itemProfile -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProfileFragment()).commit()
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
         }
-    }
-
-    private fun setupGameAdapter() {
-        gameAdapter = GameAdapter()
-        binding?.recyclerGame?.adapter = gameAdapter
-        binding?.recyclerGame?.layoutManager = LinearLayoutManager(this)
-    }
-
-    private fun observeLiveData() {
-        viewModel.loading.observe(this, ::handleLoading)
-        viewModel.error.observe(this, ::handleError)
-        viewModel.games.observe(this, ::handleGames)
-    }
-
-    private fun handleLoading(isLoading: Boolean) {
-        binding?.progress?.visibility = if (isLoading) View.VISIBLE else View.GONE
-    }
-
-    private fun handleError(error: String?) {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun handleGames(games: List<Game>) {
-        gameAdapter?.submitList(games)
     }
 }

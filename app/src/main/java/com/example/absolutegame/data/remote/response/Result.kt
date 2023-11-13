@@ -6,12 +6,12 @@ import com.google.gson.annotations.SerializedName
 data class Result(
     @SerializedName("id")
     val id: Int?,
-    @SerializedName("title")
-    val title: String?,
-    @SerializedName("thumbnail")
-    val thumbnail: String?,
-    @SerializedName("short_description")
-    val shortDescription: String?,
+    @SerializedName("name")
+    val name: String?,
+    @SerializedName("background_image")
+    val imageBackground: String?,
+    @SerializedName("description")
+    val description: String?,
     @SerializedName("game_url")
     val gameUrl: String?,
     @SerializedName("release_date")
@@ -31,9 +31,9 @@ data class Result(
 fun Result.toGame(): Game {
     return Game(
         genre = genre.orEmpty(),
-        title = title.orEmpty(),
-        thumbnail = thumbnail.orEmpty(),
+        name = name.orEmpty(),
+        imageBackground = imageBackground.orEmpty(),
         id = id ?: -1,
-        shortDescription = shortDescription.orEmpty(),
+        description = description.orEmpty(),
     )
 }

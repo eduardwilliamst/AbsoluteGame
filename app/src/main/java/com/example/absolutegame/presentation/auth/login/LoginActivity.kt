@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.absolutegame.Application
-import com.example.absolutegame.R
 import com.example.absolutegame.presentation.auth.register.RegisterActivity
 import com.example.absolutegame.databinding.ActivityLoginBinding
 import com.example.absolutegame.di.ViewModelFactory

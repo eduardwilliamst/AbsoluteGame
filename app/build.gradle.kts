@@ -62,4 +62,8 @@ dependencies {
 
     // local
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    //fragment
+    implementation("androidx.fragment:fragment-ktx:1.3.0")
+
 }

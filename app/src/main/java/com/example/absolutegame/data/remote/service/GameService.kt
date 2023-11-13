@@ -6,8 +6,8 @@ import retrofit2.http.Query
 
 interface GameService {
 
-    @GET("discover/game")
+    @GET("games")
     suspend fun fetchGames(
-        @Query("X-RapidAPI-Key") apiKey: String = "4b9bfb0e83de2a4afb17c157ccb254f3",
+        @Query("key") apiKey: String = "9164f0263dc545f496c0bd00ba00b08c",
     ): Response
 }

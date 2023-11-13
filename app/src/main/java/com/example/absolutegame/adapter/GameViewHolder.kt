@@ -9,7 +9,8 @@ class GameViewHolder(
     private val binding: ItemMenuBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(game: Game) {
-        binding.tvTitleGame.text = game.title
-        binding.tvDescGame.text = game.shortDescription
+        binding.tvTitleGame.text = game.name
+        binding.tvDescGame.text = game.description
+        binding.ivGame.load(game.imageBackground)
     }
 }

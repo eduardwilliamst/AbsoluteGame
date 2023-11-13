@@ -13,7 +13,7 @@ class Provider(
 ) {
 
     private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("https://www.freetogame.com/api/games")
+        .baseUrl("https://api.rawg.io/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
