@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.absolutegame.Application
 import com.example.absolutegame.R
@@ -24,7 +24,7 @@ class HomeFragment : Fragment() {
     private var binding: FragmentHomeBinding? = null
     private var gameAdapter: GameAdapter? = null
 
-    private val viewModel by activityViewModels<HomeViewModel> {
+    private val viewModel by viewModels<HomeViewModel> {
         ViewModelFactory.getInstance((requireActivity().application as Application).provider)
     }
 
