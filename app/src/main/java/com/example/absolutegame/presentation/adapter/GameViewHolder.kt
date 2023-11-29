@@ -1,4 +1,4 @@
-package com.example.absolutegame.adapter
+package com.example.absolutegame.presentation.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import coil.load

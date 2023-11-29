@@ -25,4 +25,10 @@
         <item name="android:textSize">18sp</item>
         <item name="android:letterSpacing">0</item>
     </style>
+
+    <style name="ImageViewCircle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

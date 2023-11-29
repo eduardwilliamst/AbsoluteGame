@@ -1,4 +1,4 @@
-package com.example.absolutegame.adapter
+package com.example.absolutegame.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

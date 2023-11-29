@@ -12,7 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.absolutegame.Application
 import com.example.absolutegame.R
-import com.example.absolutegame.adapter.GameAdapter
+import com.example.absolutegame.presentation.adapter.GameAdapter
 import com.example.absolutegame.databinding.FragmentHomeBinding
 import com.example.absolutegame.di.ViewModelFactory
 import com.example.absolutegame.domain.Game
