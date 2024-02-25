@@ -12,6 +12,24 @@
         android:visible="true"
         app:showAsAction="always" />
     <item
+        android:id="@+id/itemGenre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:icon="@drawable/baseline_genre"
+        android:title="Genre"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/itemFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite"
+        android:title="Favorite"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/itemProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

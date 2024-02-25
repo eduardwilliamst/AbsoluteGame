@@ -1,8 +1,8 @@
 package com.example.absolutegame.di
 
 import android.content.Context
-import com.example.absolutegame.data.DataStoreManager
-import com.example.absolutegame.data.LocalRepository
+import com.example.absolutegame.data.local.DataStoreManager
+import com.example.absolutegame.data.local.LocalRepository
 import com.example.absolutegame.data.remote.RemoteRepository
 import com.example.absolutegame.data.remote.service.GameService
 import retrofit2.Retrofit

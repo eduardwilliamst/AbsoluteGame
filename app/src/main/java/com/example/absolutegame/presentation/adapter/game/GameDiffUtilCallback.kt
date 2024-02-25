@@ -1,4 +1,4 @@
-package com.example.absolutegame.presentation.adapter
+package com.example.absolutegame.presentation.adapter.game
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.absolutegame.domain.Game

@@ -21,7 +21,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private var binding: ActivityRegisterBinding? = null
     private val viewModel by viewModels<RegisterViewModel> {
-        ViewModelFactory.getInstance((application as Application).provider)
+        ViewModelFactory.getInstance((application as Application).provider, this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

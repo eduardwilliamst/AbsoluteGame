@@ -1,6 +1,7 @@
 package com.example.absolutegame.data.remote.response
 
 import com.example.absolutegame.domain.Game
+import com.example.absolutegame.domain.Genre
 import com.google.gson.annotations.SerializedName
 
 data class Result(
@@ -9,7 +10,7 @@ data class Result(
     @SerializedName("name")
     val name: String?,
     @SerializedName("background_image")
-    val imageBackground: String?,
+    val image: String?,
     @SerializedName("description")
     val description: String?,
     @SerializedName("game_url")
@@ -25,14 +26,14 @@ data class Result(
     @SerializedName("developer")
     val developer: String?,
     @SerializedName("freetogame_profile_url")
-    val link: String?
+    val link: String?,
 )
 
 fun Result.toGame(): Game {
     return Game(
         genre = genre.orEmpty(),
         name = name.orEmpty(),
-        imageBackground = imageBackground.orEmpty(),
+        imageBackground = image.orEmpty(),
         id = id ?: -1,
         description = description.orEmpty(),
     )

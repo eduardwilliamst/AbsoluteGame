@@ -21,7 +21,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private var binding: ActivityProfileBinding? = null
     private val viewModel by viewModels<ProfileViewModel> {
-        ViewModelFactory.getInstance((application as Application).provider)
+        ViewModelFactory.getInstance((application as Application).provider, this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

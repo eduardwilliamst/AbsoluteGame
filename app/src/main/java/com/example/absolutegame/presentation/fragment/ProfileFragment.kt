@@ -19,7 +19,7 @@ class ProfileFragment : Fragment() {
 
     private var binding: FragmentProfileBinding? = null
     private val viewModel by activityViewModels<ProfileViewModel> {
-        ViewModelFactory.getInstance((requireActivity().application as Application).provider)
+        ViewModelFactory.getInstance((requireActivity().application as Application).provider,requireContext())
     }
 
     override fun onCreateView(
@@ -70,7 +70,7 @@ class ProfileFragment : Fragment() {
         if (isLogout) {
             val context = requireContext()
             LoginActivity.startActivity(context)
-            activity?.finish() // Optional: Finish the hosting activity if needed
+            activity?.finish()
         }
     }
 

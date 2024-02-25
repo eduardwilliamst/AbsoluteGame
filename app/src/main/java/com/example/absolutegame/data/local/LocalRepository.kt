@@ -1,5 +1,7 @@
-package com.example.absolutegame.data
+package com.example.absolutegame.data.local
 
+import com.example.absolutegame.domain.Game
+import com.example.absolutegame.domain.repository.FavoriteRepository
 import com.example.absolutegame.helper.isEmailValid
 import com.example.absolutegame.helper.isPasswordValid
 import com.example.absolutegame.domain.repository.LoginRepository
@@ -11,7 +13,7 @@ import kotlinx.coroutines.flow.combine
 
 class LocalRepository(
     private val dataStoreManager: DataStoreManager,
-) : LoginRepository, RegisterRepository, ProfileRepository {
+) : LoginRepository, RegisterRepository, ProfileRepository, FavoriteRepository {
 
     override suspend fun validateInput(username: String, password: String): Boolean {
         delay(1000)
@@ -78,6 +80,14 @@ class LocalRepository(
 
     override suspend fun loadEmail(): Flow<String?> {
         return dataStoreManager.loadEmail()
+    }
+
+    suspend fun saveFavorite(game: Game) {
+        dataStoreManager.saveFavorite(game)
+    }
+
+    override suspend fun getFavorites(): List<Game> {
+        return dataStoreManager.getFavorites()
     }
 
     override suspend fun logout() {

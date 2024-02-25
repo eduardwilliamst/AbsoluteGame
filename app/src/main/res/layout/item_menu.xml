@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                app:fontFamily="@font/amarante"
+                app:fontFamily="@font/karla"
                 tools:text="@string/app_name" />
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_desc_game"
@@ -41,6 +41,16 @@
                 android:layout_marginTop="4dp"
                 android:maxLines="5"
                 android:ellipsize="end"/>
+
+            <!-- Button favorite -->
+
+            <Button
+                android:id="@+id/btn_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorite"
+                android:layout_marginTop="16dp"/>
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

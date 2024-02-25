@@ -1,19 +1,17 @@
-package com.example.absolutegame.presentation.home
+package com.example.absolutegame.presentation.genre
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.absolutegame.data.local.LocalRepository
-import com.example.absolutegame.domain.Game
-import com.example.absolutegame.domain.repository.HomeRepository
+import com.example.absolutegame.domain.Genre
+import com.example.absolutegame.domain.repository.GenreRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class HomeViewModel(
-    private val homeRepository: HomeRepository,
-    private val localRepository: LocalRepository
+class GenreViewModel(
+    private val genreRepository: GenreRepository,
 ) : ViewModel() {
 
     private val _loading = MutableLiveData<Boolean>()
@@ -22,31 +20,25 @@ class HomeViewModel(
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
-    private val _games = MutableLiveData<List<Game>>()
-    val games: LiveData<List<Game>> = _games
+    private val _genres = MutableLiveData<List<Genre>>()
+    val genres: LiveData<List<Genre>> = _genres
 
-    fun fetchGames() {
+    fun fetchGenres() {
         _loading.value = true
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                homeRepository.fetchGames()
+                genreRepository.fetchGenres()
             }.onFailure { exception ->
                 withContext(Dispatchers.Main) {
                     _loading.value = false
                     _error.value = exception.message
                 }
-            }.onSuccess { games ->
+            }.onSuccess { genres ->
                 withContext(Dispatchers.Main) {
                     _loading.value = false
-                    _games.value = games
+                    _genres.value = genres
                 }
             }
-        }
-    }
-
-    fun saveFavorite(game: Game) {
-        viewModelScope.launch(Dispatchers.IO) {
-            localRepository.saveFavorite(game)
         }
     }
 }

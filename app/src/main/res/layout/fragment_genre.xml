@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragment.HomeFragment">
+    tools:context=".presentation.fragment.GenreFragment">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_title"
@@ -14,7 +14,7 @@
         android:fontFamily="@font/ultra"
         android:gravity="center"
         android:padding="10dp"
-        android:text="@string/title_home"
+        android:text="GENRE"
         android:textSize="40sp" />
 
     <ProgressBar
@@ -25,11 +25,11 @@
         android:layout_below="@id/tv_title"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_game"
+        android:id="@+id/recycler_genre"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_below="@id/progress"
         android:layout_alignParentBottom="true"
-        tools:listitem="@layout/item_menu" />
+        tools:listitem="@layout/item_genre" />
 
 </RelativeLayout>
